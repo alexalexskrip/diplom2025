@@ -1,7 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+/*
+«Illuminate\Support\Facades\Route;» — это класс, который используется для работы с маршрутами в рамках фреймворка Laravel. 
+*/
+use App\Http\Controllers\Admin\PostController;
+/*
 
+*/
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,9 +19,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/post-create',[PostController::class,'create'])->name('post-create');
+Route::post('/post-create',[PostController::class,'store'])->name('post.store');
 
 // Route::get('/first-step/{id}', [TaskController::class, 'firstStep'])->name('tasks.steps.first'); 
 
